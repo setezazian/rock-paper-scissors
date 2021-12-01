@@ -1,21 +1,24 @@
-var rockPaperScissor = function(numOfRounds) {
+const rockPaperScissor = (numOfRounds) => {
+  let numberOfRounds = numOfRounds;
   if (numOfRounds === undefined) {
-    numOfRounds = 3;;
-  };
-  
-  var result = [];
-  var plays = ['R', 'P', 'S'];
-  
-  var outcome = function(playedSoFar, roundsLeft) {
+    numberOfRounds = 3;
+  }
+
+  const result = [];
+  const plays = ['R', 'P', 'S'];
+
+  const outcome = (playedSoFar, roundsLeft) => {
     if (roundsLeft === 0) {
       result.push(playedSoFar);
+    } else {
+      for (let i = 0; i < plays.length; i += 1) {
+        outcome(playedSoFar.concat(plays[i]), roundsLeft - 1);
+      }
     }
-    
-    for (var i = 0; i < plays.length; i++) {
-      outcome(playedSoFar.concat(plays[i]),roundsLeft--);
-    }
-  }
-  
-  outcome("", numOfRounds);
+  };
+
+  outcome('', numberOfRounds);
   return result;
-}
+};
+
+module.exports = rockPaperScissor;
