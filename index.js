@@ -1,6 +1,6 @@
-const rockPaperScissor = (numOfRounds) => {
-  let numberOfRounds = numOfRounds;
-  if (numOfRounds === undefined) {
+const rockPaperScissor = (input) => {
+  let numberOfRounds = input;
+  if (input === undefined) {
     numberOfRounds = 3;
   }
 
